@@ -10,41 +10,24 @@ namespace Baekjoon._11단계
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
-            StreamWriter sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
-            StringBuilder sb = new StringBuilder();
+            using StreamReader sr = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
+            using StreamWriter sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
 
-            int i, n, m;
-
-            n = int.Parse(sr.ReadLine());
-
-            int[] a = new int[n];
+            int i, j;
+            int n = int.Parse(sr.ReadLine());
+            int[] cArr = new int[10001];
             for (i = 0; i < n; i++)
-                a[i] = int.Parse(sr.ReadLine());
+                cArr[int.Parse(sr.ReadLine())]++;
 
-            m = a.Max();
-            int[] c = new int[m + 1];
-            int[] o = new int[n];
-
-            for (i = 0; i < n; i++)
-                c[a[i]]++;
-            for (i = 1; i <= m; i++)
-                c[i] += c[i - 1];
-            for (i = 0; i < n; i++)
+            for (i = 0; i <= 10000; i++)
             {
-                int target = a[i];
-                o[c[target] - 1] = target;
-                c[target]--;
+                if (cArr[i] != 0)
+                {
+                    for (j = 0; j < cArr[i]; j++)
+                        sw.Write(i + "\n");
+                }
             }
 
-
-            foreach (int item in o)
-                sb.Append(item).Append(" ");
-
-            sw.Write(sb);
-
-            sw.Close();
-            sr.Close();
-        }        
+        }
     }
 }
