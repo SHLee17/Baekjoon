@@ -8,7 +8,7 @@ namespace Baekjoon._11단계
 {
     internal class _11_3
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             using StreamReader sr = new StreamReader(new BufferedStream(Console.OpenStandardInput()));
             using StreamWriter sw = new StreamWriter(new BufferedStream(Console.OpenStandardOutput()));
@@ -17,7 +17,10 @@ namespace Baekjoon._11단계
             int n = int.Parse(sr.ReadLine());
             int[] cArr = new int[10001];
             for (i = 0; i < n; i++)
-                cArr[int.Parse(sr.ReadLine())]++;
+            {
+                int temp = int.Parse(sr.ReadLine());
+                cArr[temp]++;
+            }
 
             for (i = 0; i <= 10000; i++)
             {
