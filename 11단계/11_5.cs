@@ -8,7 +8,7 @@ namespace Baekjoon._11단계
 {
     internal class _11_5
     {
-        static void Main(string[] args)
+        static void Main1(string[] args)
         {
             string n = Console.ReadLine();
 
@@ -30,7 +30,7 @@ namespace Baekjoon._11단계
                 int pivot = left;
                 for (int i = pivot; i < right; i++)
                 {
-                    if (arr[i] <= arr[right])
+                    if (arr[i] >= arr[right])
                     {
                         Swap(ref arr[pivot], ref arr[i]);
                         pivot++;
